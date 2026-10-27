@@ -16,7 +16,7 @@ export default function EhnoteCaseStudyPage() {
   return (
     <main className="min-h-screen bg-[#f5f5f2] relative pb-32">
       {/* Hero Section */}
-      <div className="pt-[120px] md:pt-[164px] px-[24px] md:px-[80px] max-w-[1500px] mx-auto relative z-10 flex flex-col items-center text-center">
+      <div className="pt-[120px] md:pt-[164px] max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] relative z-10 flex flex-col items-center text-center">
         <p className="font-sans text-[16px] leading-[28px] text-black mb-[24px]">
           Healthcare Platform
         </p>
@@ -45,7 +45,7 @@ export default function EhnoteCaseStudyPage() {
       </div>
 
       {/* Role / Timeline / Platform / Domain / Users Info Bar */}
-      <SectionReveal className="px-[24px] md:px-[80px] max-w-[1500px] mx-auto mt-[80px]">
+      <SectionReveal className="max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] mt-[80px]">
         <div className="border-t border-[#e4e4e4] pt-[40px] flex flex-col md:flex-row flex-wrap gap-[40px] md:gap-[24px] justify-between">
           <div className="flex flex-col gap-[4px] min-w-[150px]">
             <p className="font-jakarta font-medium text-[18px] text-black">Role</p>
@@ -71,7 +71,7 @@ export default function EhnoteCaseStudyPage() {
       </SectionReveal>
 
       {/* TL;DR Section */}
-      <SectionReveal className="px-[24px] md:px-[80px] max-w-[1500px] mx-auto mt-[120px] md:mt-[180px] flex flex-col lg:flex-row gap-[40px] lg:gap-[120px]">
+      <SectionReveal className="max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] mt-[120px] md:mt-[180px] flex flex-col lg:flex-row gap-[40px] lg:gap-[120px]">
         <h2 className="font-jakarta font-medium text-[32px] md:text-[40px] text-black w-full lg:w-[200px] shrink-0">
           TL;DR
         </h2>
@@ -127,7 +127,7 @@ export default function EhnoteCaseStudyPage() {
       </SectionReveal>
 
       {/* Main Content Area with Sticky Sidebar */}
-      <div className="px-[24px] md:px-[80px] max-w-[1500px] mx-auto mt-[120px] md:mt-[180px] flex flex-col lg:flex-row gap-[40px] lg:gap-[120px] relative">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] mt-[120px] md:mt-[180px] flex flex-col lg:flex-row gap-[40px] lg:gap-[120px] relative">
         <StickySidebar sections={caseStudySections} />
         
         <div className="flex-1 flex flex-col gap-[120px] md:gap-[160px] max-w-[900px]">

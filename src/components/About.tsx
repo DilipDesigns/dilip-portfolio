@@ -75,7 +75,7 @@ export default function About() {
       ref={sectionRef} 
       className="py-24 bg-[#f5f5f2] text-[#1d1d1d] relative w-full"
     >
-      <div className="max-w-[1500px] mx-auto px-6 md:px-[80px] flex flex-col lg:flex-row gap-16 lg:gap-24 justify-between items-start w-full">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] flex flex-col lg:flex-row gap-16 lg:gap-24 justify-between items-start w-full">
         
         {/* Left Side: Sticky Image Card */}
         <div 

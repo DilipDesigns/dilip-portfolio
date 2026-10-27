@@ -8,7 +8,7 @@ export default function LabPage() {
 
   return (
     <main className="min-h-screen bg-[#f5f5f2] flex flex-col">
-      <div className="pt-32 px-6 md:px-[80px] max-w-[1500px] w-full mx-auto">
+      <div className="pt-32 max-w-[1400px] w-full mx-auto px-6 md:px-12 min-[1400px]:px-[120px]">
         <h1 className="font-jakarta font-bold text-[48px] md:text-[64px] text-[#1d1d1d]">
           Lab
         </h1>

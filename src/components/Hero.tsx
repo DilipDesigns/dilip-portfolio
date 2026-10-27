@@ -102,7 +102,7 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
-  const headlineText = "Cybersecurity services for a new era of risk";
+  const headlineText = "From 0 → 1, Designing human-centered interfaces for the AI era.";
   
   return (
     <>
@@ -117,11 +117,11 @@ export default function Hero() {
         {/* Background & Animations */}
         <SecurioBackground />
 
-        {/* Global Padding Container */}
-        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-16 relative z-10">
+        {/* Global Padding Container: 120px margin at 1400px screens */}
+        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] relative z-10">
           
           {/* class="home-hero" */}
-          <div className="home-hero">
+          <div className="home-hero items-center text-center">
             
             {/* class="wrapper-home-hero" with 3D preserve & will-change */}
             <div 
@@ -130,14 +130,14 @@ export default function Hero() {
                 transformStyle: "preserve-3d",
                 willChange: "opacity, transform",
               }}
-              className="wrapper-home-hero"
+              className="wrapper-home-hero items-center text-center mx-auto"
             >
               
               {/* class="stack-hero-home" */}
-              <div className="stack-hero-home">
+              <div className="stack-hero-home items-center text-center">
                 
                 {/* class="stack-trusted-by" */}
-                <div ref={trustedRef} className="stack-trusted-by">
+                <div ref={trustedRef} className="stack-trusted-by mx-auto">
                   <div className="stack-images-trusted-logos">
                     {clientAvatars.map((av) => (
                       <img 
@@ -155,10 +155,10 @@ export default function Hero() {
                 </div>
 
                 {/* class="text-block-hero" */}
-                <div className="text-block-hero">
+                <div className="text-block-hero items-center text-center mx-auto">
                   <h1 
                     ref={headlineRef} 
-                    className="font-jakarta font-semibold text-[40px] sm:text-[54px] md:text-[64px] leading-[1.08] tracking-[-0.03em] text-white flex flex-wrap"
+                    className="font-jakarta font-semibold text-[38px] sm:text-[50px] md:text-[60px] lg:text-[64px] leading-[1.1] tracking-[-0.03em] text-white flex flex-wrap justify-center text-center"
                   >
                     {headlineText.split(" ").map((word, i) => (
                       <span key={i} className="word-wrap overflow-hidden inline-block mr-[8px] sm:mr-[10px] md:mr-[12px] mb-1">
@@ -169,16 +169,16 @@ export default function Hero() {
 
                   <p 
                     ref={paragraphRef} 
-                    className="font-jakarta font-normal text-[16px] sm:text-[18px] md:text-[20px] leading-[1.5] text-white/90 max-w-[34rem]"
+                    className="font-jakarta font-normal text-[16px] sm:text-[18px] md:text-[20px] leading-[1.6] text-white/90 max-w-[48rem] mx-auto text-center"
                   >
-                    Protect your business from cyber threats.
+                    UX/UI Designer creating thoughtful digital experiences across healthcare, SaaS, AI concepts, branding, and modern web products. Focused on usability, workflows, visual clarity, and meaningful user experiences.
                   </p>
                 </div>
 
               </div>
 
               {/* class="button-stack" */}
-              <div ref={actionsRef} className="button-stack">
+              <div ref={actionsRef} className="button-stack justify-center items-center mx-auto">
                 <a 
                   href="/contact" 
                   className="inline-flex items-center justify-center bg-[#070b14] hover:bg-[#0f172a] text-white text-[15px] sm:text-[16px] font-medium px-7 py-3 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 border border-white/15 shadow-[0_4px_16px_rgba(0,0,0,0.25)] no-underline cursor-pointer"

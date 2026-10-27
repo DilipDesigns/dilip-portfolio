@@ -35,7 +35,7 @@ export default function Process() {
 
   return (
     <section id="process" className="py-32 bg-[#f5f5f2] overflow-hidden flex flex-col items-center">
-      <div className="max-w-[1500px] mx-auto w-full px-6 md:px-[80px] flex flex-col gap-[80px]">
+      <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 min-[1400px]:px-[120px] flex flex-col gap-[80px]">
         
         {/* Header Text */}
         <div className="flex flex-col lg:flex-row lg:items-start gap-[24px] lg:gap-[100px] xl:gap-[350px] w-full">

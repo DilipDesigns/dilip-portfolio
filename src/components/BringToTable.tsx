@@ -177,7 +177,7 @@ export default function BringToTable() {
       className="py-24 md:py-32 bg-[#f5f5f2] overflow-hidden w-full flex flex-col items-center border-t border-[#e4e4e4]"
     >
       {/* Outer wrapper matching portfolio spacing standard */}
-      <div className="max-w-[1500px] mx-auto w-full px-6 md:px-[80px] flex flex-col items-center justify-center relative">
+      <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 min-[1400px]:px-[120px] flex flex-col items-center justify-center relative">
         
         {/* ==================== DESKTOP & LAPTOP LAYOUT (Orbiting Pills) ==================== */}
         <div 
