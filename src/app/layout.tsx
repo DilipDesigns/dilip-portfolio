@@ -33,6 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${ibmPlexMono.variable} ${plusJakartaSans.variable} h-full antialiased scroll-smooth`}
     >
