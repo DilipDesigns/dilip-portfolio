@@ -19,40 +19,57 @@ export default function SecurioBackground({ className = "" }: SecurioBackgroundP
     if (prefersReducedMotion || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // 1. Entrance animation
+      // 1. Entrance animation (exact Webflow timeline: t-ef8ddc81)
+      gsap.fromTo(
+        darkCircleRef.current,
+        { x: "-10rem", y: "-20rem" },
+        { x: "0rem", y: "0rem", duration: 1.8, delay: 0.4, ease: "power2.out" }
+      );
+
       gsap.fromTo(
         primaryCircleRef.current,
-        { scale: 0.85, opacity: 0 },
-        { scale: 1, opacity: 0.85, duration: 1.4, ease: "power2.out" }
+        { x: "-8rem", y: "-12rem" },
+        { x: "0rem", y: "0rem", duration: 1.2, ease: "power2.out" }
       );
 
       gsap.fromTo(
         secondaryCircleRef.current,
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 0.75, duration: 1.8, ease: "power2.out", delay: 0.2 }
+        { x: "-4rem", y: "-12rem" },
+        { x: "0rem", y: "0rem", duration: 1.8, ease: "power2.out" }
       );
 
-      gsap.fromTo(
-        darkCircleRef.current,
-        { opacity: 0 },
-        { opacity: 0.9, duration: 2, ease: "power2.out" }
-      );
-
-      // 2. Continuous ambient breathing & floating movement
-      gsap.to(primaryCircleRef.current, {
+      // 2. Continuous ambient floating movement for organic cyber radiance
+      gsap.to(darkCircleRef.current, {
+        x: "+=2.5rem",
+        y: "+=3.5rem",
         scale: 1.05,
-        duration: 7,
+        duration: 9,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
+        delay: 2.2
+      });
+
+      gsap.to(primaryCircleRef.current, {
+        x: "-=2rem",
+        y: "+=2.5rem",
+        scale: 1.08,
+        duration: 7.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 1.6
       });
 
       gsap.to(secondaryCircleRef.current, {
-        scale: 1.08,
-        duration: 9.5,
+        x: "+=3rem",
+        y: "-=2rem",
+        scale: 1.04,
+        duration: 11,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
+        delay: 2.0
       });
 
       // 3. Continuous vertical scrolling of dots-vector
@@ -60,14 +77,14 @@ export default function SecurioBackground({ className = "" }: SecurioBackgroundP
         gsap.fromTo(
           dots1Ref.current,
           { y: 0 },
-          { y: -1000, duration: 25, ease: "none", repeat: -1 }
+          { y: -2000, duration: 30, ease: "none", repeat: -1 }
         );
       }
       if (dots2Ref.current) {
         gsap.fromTo(
           dots2Ref.current,
           { y: 0 },
-          { y: -1000, duration: 25, ease: "none", repeat: -1 }
+          { y: -2000, duration: 30, ease: "none", repeat: -1 }
         );
       }
     }, containerRef);
@@ -106,104 +123,48 @@ export default function SecurioBackground({ className = "" }: SecurioBackgroundP
   return (
     <div
       ref={containerRef}
-      className={`absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none ${className}`}
-      style={{
-        zIndex: 1,
-        backgroundColor: "#070b14",
-        minHeight: "100%",
-      }}
+      className={`gradient-background ${className}`}
     >
-      {/* Securio Layer 1: Dark Circle (deep midnight navy vignette) */}
+      {/* Securio Layer 1: Dark Circle (deep midnight navy vignetting top-left) */}
       <img
         ref={darkCircleRef}
         src="/securio/dark-circle.avif"
-        alt=""
+        alt="Dark Gradient"
         loading="eager"
-        className="absolute pointer-events-none will-change-transform"
-        style={{
-          zIndex: 9,
-          width: "150vw",
-          maxWidth: "1800px",
-          height: "auto",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          objectFit: "contain",
-          mixBlendMode: "multiply",
-          opacity: 0.9,
-        }}
+        className="dark-circle will-change-transform pointer-events-none select-none"
       />
 
-      {/* Securio Layer 2: Primary Circle (vibrant electric cyber blue core centered behind hero text) */}
+      {/* Securio Layer 2: Primary Circle (vibrant electric cyber blue center) */}
       <img
         ref={primaryCircleRef}
         src="/securio/blue-circle.avif"
-        alt=""
+        alt="Blue Gradient"
         loading="eager"
-        className="absolute pointer-events-none will-change-transform"
-        style={{
-          zIndex: 8,
-          width: "125vw",
-          maxWidth: "1400px",
-          height: "auto",
-          top: "45%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          objectFit: "contain",
-          filter: "drop-shadow(0 0 100px rgba(31,74,244,0.5))",
-          opacity: 0.85,
-        }}
+        className="primary-circle will-change-transform pointer-events-none select-none"
       />
 
-      {/* Securio Layer 3: Grid Dots Vector (ambient continuous upward motion) */}
+      {/* Securio Layer 3: Grid Dots Vector (continuous ambient scroll) */}
       <div
         ref={dots1Ref}
-        className="absolute will-change-transform pointer-events-none opacity-35"
-        style={{
-          zIndex: 7,
-          backgroundImage: 'url("/securio/grid-dots-single.webp")',
-          backgroundPosition: "50% 50%",
-          backgroundRepeat: "repeat",
-          width: "200vw",
-          minHeight: "2200px",
-          marginLeft: "-50vw",
-          top: "-200px",
-        }}
+        className="dots-vector will-change-transform pointer-events-none select-none"
       />
       <div
         ref={dots2Ref}
-        className="absolute will-change-transform pointer-events-none opacity-35"
-        style={{
-          zIndex: 7,
-          backgroundImage: 'url("/securio/grid-dots-single.webp")',
-          backgroundPosition: "50% 50%",
-          backgroundRepeat: "repeat",
-          width: "200vw",
-          minHeight: "2200px",
-          marginLeft: "-50vw",
-          top: "1000px",
-        }}
+        className="dots-vector will-change-transform pointer-events-none select-none"
+        style={{ marginTop: "-2000px" }}
       />
 
-      {/* Securio Layer 4: Secondary Circle (luminous cyan / azure atmospheric spread centered) */}
+      {/* Securio Layer 4: Secondary Circle (luminous cyan / azure atmospheric spread) */}
       <img
         ref={secondaryCircleRef}
         src="/securio/light-circle.avif"
-        alt=""
+        alt="Light Blue Gradient"
         loading="eager"
-        className="absolute pointer-events-none will-change-transform"
-        style={{
-          zIndex: 4,
-          width: "145vw",
-          maxWidth: "1650px",
-          height: "auto",
-          top: "40%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          objectFit: "contain",
-          opacity: 0.75,
-        }}
+        className="secondary-circle will-change-transform pointer-events-none select-none"
       />
+
+      {/* Securio Layer 5: Overlay Light (smooth transition gradient to #f0f1f3) */}
+      <div className="overlay-light pointer-events-none select-none" />
     </div>
   );
 }

@@ -10,12 +10,19 @@ if (typeof window !== "undefined") {
 }
 
 const clientLogos = [
-  { id: 1, src: "/securio/logos/client-logo-1.webp", alt: "Enterprise Partner" },
-  { id: 2, src: "/securio/logos/client-logo-2.webp", alt: "Design System Partner" },
-  { id: 3, src: "/securio/logos/client-logo-3.webp", alt: "AI Innovation" },
-  { id: 4, src: "/securio/logos/client-logo-4.webp", alt: "HealthTech UX" },
-  { id: 5, src: "/securio/logos/client-logo-5.webp", alt: "SaaS Platform" },
-  { id: 6, src: "/securio/logos/client-logo-6.webp", alt: "Cloud Ecosystem" },
+  { id: 1, src: "/securio/logos/client-logo-1.webp", alt: "Logoipsum Logo - Cyber security client - Securio" },
+  { id: 2, src: "/securio/logos/client-logo-2.webp", alt: "Department of Fictional Logos - Cyber security client - Securio" },
+  { id: 3, src: "/securio/logos/client-logo-3.webp", alt: "Logoipsum Academy - Cyber security client - Securio" },
+  { id: 4, src: "/securio/logos/client-logo-4.webp", alt: "Logoipsum Tech - Cyber security client - Securio" },
+  { id: 5, src: "/securio/logos/client-logo-5.webp", alt: "Logoipsum est 2019 - Cyber security client - Securio" },
+  { id: 6, src: "/securio/logos/client-logo-6.webp", alt: "Logoipsum - Cyber security client - Securio" },
+];
+
+const clientAvatars = [
+  { id: 1, src: "/securio/avatars/avatar-1.webp", alt: "Client Photo Four" },
+  { id: 2, src: "/securio/avatars/avatar-2.webp", alt: "Client Photo Three" },
+  { id: 3, src: "/securio/avatars/avatar-3.webp", alt: "Client Photo Two" },
+  { id: 4, src: "/securio/avatars/avatar-4.webp", alt: "Client Photo" },
 ];
 
 export default function Hero() {
@@ -37,15 +44,15 @@ export default function Hero() {
 
     const ctx = gsap.context(() => {
       // Set initial states
-      gsap.set(trustedRef.current, { opacity: 0, y: 18 });
-      gsap.set(headlineWords, { opacity: 0, y: 32, filter: "blur(8px)" });
+      gsap.set(trustedRef.current, { opacity: 0, y: 20 });
+      gsap.set(headlineWords, { opacity: 0, y: 30, filter: "blur(6px)" });
       gsap.set(paragraphRef.current, { opacity: 0, y: 20 });
-      gsap.set(actionsRef.current?.children || [], { opacity: 0, y: 16 });
+      gsap.set(actionsRef.current?.children || [], { opacity: 0, y: 15 });
       
-      const tl = gsap.timeline({ defaults: { ease: "cubic-bezier(0.22, 1, 0.36, 1)" } });
+      const tl = gsap.timeline({ defaults: { ease: "cubic-bezier(0.25, 1, 0.5, 1)" } });
       tl.delay(0.2);
 
-      // 1. Status badge
+      // 1. Trusted by tag
       tl.to(trustedRef.current, {
         opacity: 1,
         y: 0,
@@ -58,8 +65,8 @@ export default function Hero() {
         y: 0,
         filter: "blur(0px)",
         duration: 0.9,
-        stagger: 0.035
-      }, "-=0.55");
+        stagger: 0.04
+      }, "-=0.6");
 
       // 3. Subheadline
       tl.to(paragraphRef.current, {
@@ -68,7 +75,7 @@ export default function Hero() {
         duration: 0.8
       }, "-=0.6");
 
-      // 4. Action buttons
+      // 4. Action button
       tl.to(actionsRef.current?.children || [], {
         opacity: 1,
         y: 0,
@@ -76,11 +83,11 @@ export default function Hero() {
         stagger: 0.1
       }, "-=0.6");
 
-      // 5. 3D Scroll Depth
+      // 5. 3D Scroll Depth (preserve-3d, opacity & translate)
       gsap.to(containerRef.current, {
-        opacity: 0.4,
-        y: 100,
-        scale: 0.96,
+        opacity: 0.6,
+        y: 60,
+        scale: 0.97,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -95,7 +102,7 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
-  const headlineText = "From 0 → 1, Designing human-centered interfaces for the AI era.";
+  const headlineText = "Cybersecurity services for a new era of risk";
   
   return (
     <>
@@ -111,7 +118,7 @@ export default function Hero() {
         <SecurioBackground />
 
         {/* Global Padding Container */}
-        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col justify-center items-center">
+        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-16 relative z-10">
           
           {/* class="home-hero" */}
           <div className="home-hero">
@@ -129,25 +136,32 @@ export default function Hero() {
               {/* class="stack-hero-home" */}
               <div className="stack-hero-home">
                 
-                {/* class="stack-trusted-by" (Refined high-status designer indicator) */}
+                {/* class="stack-trusted-by" */}
                 <div ref={trustedRef} className="stack-trusted-by">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  <span className="font-mono text-[11px] sm:text-[12px] tracking-[0.14em] uppercase font-medium text-white/90">
-                    Available for Design Systems & AI-Native UX
-                  </span>
+                  <div className="stack-images-trusted-logos">
+                    {clientAvatars.map((av) => (
+                      <img 
+                        key={av.id}
+                        src={av.src}
+                        alt={av.alt}
+                        loading="eager"
+                        className="single-testimonial-image"
+                      />
+                    ))}
+                  </div>
+                  <div className="text-[13px] md:text-[14px] font-medium text-white/95">
+                    Trusted by 300+ companies
+                  </div>
                 </div>
 
                 {/* class="text-block-hero" */}
                 <div className="text-block-hero">
                   <h1 
                     ref={headlineRef} 
-                    className="font-jakarta font-bold text-[36px] sm:text-[50px] md:text-[62px] lg:text-[72px] leading-[1.12] tracking-[-0.03em] text-white text-center max-w-[960px] mx-auto drop-shadow-[0_4px_30px_rgba(0,0,0,0.6)] flex flex-wrap justify-center"
+                    className="font-jakarta font-semibold text-[40px] sm:text-[54px] md:text-[64px] leading-[1.08] tracking-[-0.03em] text-white flex flex-wrap"
                   >
                     {headlineText.split(" ").map((word, i) => (
-                      <span key={i} className="word-wrap overflow-hidden inline-block mr-[8px] sm:mr-[10px] md:mr-[13px] mb-1">
+                      <span key={i} className="word-wrap overflow-hidden inline-block mr-[8px] sm:mr-[10px] md:mr-[12px] mb-1">
                         <span className="word inline-block">{word}</span>
                       </span>
                     ))}
@@ -155,9 +169,9 @@ export default function Hero() {
 
                   <p 
                     ref={paragraphRef} 
-                    className="font-jakarta font-normal text-[15px] sm:text-[17px] md:text-[19px] leading-[1.65] text-white/75 max-w-[680px] mx-auto text-center drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)]"
+                    className="font-jakarta font-normal text-[16px] sm:text-[18px] md:text-[20px] leading-[1.5] text-white/90 max-w-[34rem]"
                   >
-                    UX/UI Designer creating thoughtful digital experiences across healthcare, SaaS, AI concepts, and modern web products. Focused on usability, complex workflows, and visual clarity.
+                    Protect your business from cyber threats.
                   </p>
                 </div>
 
@@ -165,34 +179,11 @@ export default function Hero() {
 
               {/* class="button-stack" */}
               <div ref={actionsRef} className="button-stack">
-                <a href="#work" className="no-underline">
-                  <RippleButton 
-                    variant="primary"
-                    className="bg-white hover:bg-white/95 text-[#070b14] font-semibold text-[15px] sm:text-[16px] px-8 py-3.5 rounded-full shadow-[0_0_24px_rgba(255,255,255,0.25)] hover:shadow-[0_0_36px_rgba(255,255,255,0.4)] transition-all transform hover:-translate-y-0.5 cursor-pointer flex items-center gap-2.5"
-                  >
-                    <span className="font-jakarta font-semibold tracking-[-0.01em]">
-                      View Selected Work
-                    </span>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="text-[#070b14]">
-                      <path d="M7 13l5 5 5-5M12 4v14"/>
-                    </svg>
-                    <RippleButtonRipples />
-                  </RippleButton>
-                </a>
-                
-                <a href="#about" className="no-underline">
-                  <RippleButton 
-                    variant="secondary"
-                    className="bg-white/10 hover:bg-white/15 border border-white/20 backdrop-blur-md text-white font-medium text-[15px] sm:text-[16px] px-8 py-3.5 rounded-full transition-all transform hover:-translate-y-0.5 cursor-pointer shadow-[0_4px_16px_rgba(0,0,0,0.2)] flex items-center gap-2.5"
-                  >
-                    <span className="font-jakarta font-medium text-white tracking-[-0.01em]">
-                      Let’s Connect
-                    </span>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/80">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                    <RippleButtonRipples />
-                  </RippleButton>
+                <a 
+                  href="/contact" 
+                  className="inline-flex items-center justify-center bg-[#070b14] hover:bg-[#0f172a] text-white text-[15px] sm:text-[16px] font-medium px-7 py-3 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 border border-white/15 shadow-[0_4px_16px_rgba(0,0,0,0.25)] no-underline cursor-pointer"
+                >
+                  Book a Demo
                 </a>
               </div>
 
@@ -204,27 +195,21 @@ export default function Hero() {
       {/* =========================================================================
           class="section-logos padding-top"
           ========================================================================= */}
-      <section className="section-logos padding-top relative">
-        <div className="logos-fade-left" />
-        <div className="logos-fade-right" />
-        <div className="font-mono text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-white/40 mb-5 font-medium text-center relative z-10">
-          Systems Architecture • AI Workflows • Digital Products
-        </div>
-        <div className="w-full flex overflow-hidden relative">
-          {[0, 1, 2].map((trackIdx) => (
-            <div key={trackIdx} className="logos-container" aria-hidden={trackIdx > 0}>
-              {clientLogos.map((logo) => (
-                <img 
-                  key={`${trackIdx}-${logo.id}`}
-                  src={logo.src}
-                  alt={logo.alt}
-                  loading="lazy"
-                  className="client-logo"
-                />
-              ))}
-            </div>
-          ))}
-        </div>
+      <section className="section-logos padding-top">
+        {/* 3 repeating marquee tracks */}
+        {[0, 1, 2].map((trackIdx) => (
+          <div key={trackIdx} className="logos-container" aria-hidden={trackIdx > 0}>
+            {clientLogos.map((logo) => (
+              <img 
+                key={`${trackIdx}-${logo.id}`}
+                src={logo.src}
+                alt={logo.alt}
+                loading="lazy"
+                className="client-logo"
+              />
+            ))}
+          </div>
+        ))}
       </section>
     </>
   );
