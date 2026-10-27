@@ -19,64 +19,43 @@ export default function SecurioBackground({ className = "" }: SecurioBackgroundP
     if (prefersReducedMotion || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // 1. Entrance animation (Webflow load timeline: t-ef8ddc81)
-      // dark-circle: x -10rem -> 0, y -20rem -> 0, duration 1.8s, position 0.4s
-      // primary-circle: x -8rem -> 0, y -12rem -> 0, duration 1.2s
-      // secondary-circle: x -4rem -> 0, y -12rem -> 0, duration 1.8s
-      gsap.fromTo(
-        darkCircleRef.current,
-        { x: "-10rem", y: "-20rem" },
-        { x: "0rem", y: "0rem", duration: 1.8, delay: 0.4, ease: "power2.out" }
-      );
-
+      // 1. Entrance animation
       gsap.fromTo(
         primaryCircleRef.current,
-        { x: "-8rem", y: "-12rem" },
-        { x: "0rem", y: "0rem", duration: 1.2, ease: "power2.out" }
+        { scale: 0.85, opacity: 0 },
+        { scale: 1, opacity: 0.85, duration: 1.4, ease: "power2.out" }
       );
 
       gsap.fromTo(
         secondaryCircleRef.current,
-        { x: "-4rem", y: "-12rem" },
-        { x: "0rem", y: "0rem", duration: 1.8, ease: "power2.out" }
+        { scale: 0.8, opacity: 0 },
+        { scale: 1, opacity: 0.75, duration: 1.8, ease: "power2.out", delay: 0.2 }
       );
 
-      // 2. Continuous ambient floating movement for organic cyber radiance
-      gsap.to(darkCircleRef.current, {
-        x: "+=2.5rem",
-        y: "+=3.5rem",
-        scale: 1.05,
-        duration: 9,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: 2.2
-      });
+      gsap.fromTo(
+        darkCircleRef.current,
+        { opacity: 0 },
+        { opacity: 0.9, duration: 2, ease: "power2.out" }
+      );
 
+      // 2. Continuous ambient breathing & floating movement
       gsap.to(primaryCircleRef.current, {
-        x: "-=2rem",
-        y: "+=2.5rem",
-        scale: 1.08,
-        duration: 7.5,
+        scale: 1.05,
+        duration: 7,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
-        delay: 1.6
       });
 
       gsap.to(secondaryCircleRef.current, {
-        x: "+=3rem",
-        y: "-=2rem",
-        scale: 1.04,
-        duration: 11,
+        scale: 1.08,
+        duration: 9.5,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
-        delay: 2.0
       });
 
-      // 3. Continuous vertical scrolling of dots-vector (Webflow timeline: t-628d9354)
-      // duration: 20s, ease: none, repeat: -1, y: 0 -> -1000px
+      // 3. Continuous vertical scrolling of dots-vector
       if (dots1Ref.current) {
         gsap.fromTo(
           dots1Ref.current,
@@ -93,7 +72,7 @@ export default function SecurioBackground({ className = "" }: SecurioBackgroundP
       }
     }, containerRef);
 
-    // 4. Subtle interactive mouse parallax for extra polish
+    // 4. Subtle interactive mouse parallax for organic responsiveness
     const handleMouseMove = (e: MouseEvent) => {
       if (prefersReducedMotion) return;
       const { innerWidth, innerHeight } = window;
@@ -101,16 +80,16 @@ export default function SecurioBackground({ className = "" }: SecurioBackgroundP
       const mouseY = (e.clientY / innerHeight - 0.5) * 2;
 
       gsap.to(primaryCircleRef.current, {
-        xPercent: mouseX * 2.5,
-        yPercent: mouseY * 2.5,
+        x: mouseX * 24,
+        y: mouseY * 24,
         duration: 1.2,
         ease: "power1.out",
         overwrite: "auto"
       });
       gsap.to(secondaryCircleRef.current, {
-        xPercent: -mouseX * 3,
-        yPercent: -mouseY * 3,
-        duration: 1.5,
+        x: -mouseX * 32,
+        y: -mouseY * 32,
+        duration: 1.6,
         ease: "power1.out",
         overwrite: "auto"
       });
@@ -134,7 +113,7 @@ export default function SecurioBackground({ className = "" }: SecurioBackgroundP
         minHeight: "100%",
       }}
     >
-      {/* Securio Layer 1: Dark Circle (deep midnight navy vignetting layer) */}
+      {/* Securio Layer 1: Dark Circle (deep midnight navy vignette) */}
       <img
         ref={darkCircleRef}
         src="/securio/dark-circle.avif"
@@ -143,18 +122,19 @@ export default function SecurioBackground({ className = "" }: SecurioBackgroundP
         className="absolute pointer-events-none will-change-transform"
         style={{
           zIndex: 9,
-          minWidth: "140vw",
-          maxWidth: "140vw",
-          minHeight: "80rem",
-          maxHeight: "80rem",
-          marginTop: "-25rem",
-          marginLeft: "-20vw",
+          width: "150vw",
+          maxWidth: "1800px",
+          height: "auto",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
           objectFit: "contain",
           mixBlendMode: "multiply",
+          opacity: 0.9,
         }}
       />
 
-      {/* Securio Layer 2: Primary Circle (vibrant electric cyber blue core) */}
+      {/* Securio Layer 2: Primary Circle (vibrant electric cyber blue core centered behind hero text) */}
       <img
         ref={primaryCircleRef}
         src="/securio/blue-circle.avif"
@@ -163,21 +143,22 @@ export default function SecurioBackground({ className = "" }: SecurioBackgroundP
         className="absolute pointer-events-none will-change-transform"
         style={{
           zIndex: 8,
-          minWidth: "160vw",
-          maxWidth: "160vw",
-          minHeight: "80rem",
-          maxHeight: "80rem",
-          marginTop: "-15rem",
-          marginLeft: "-20vw",
+          width: "125vw",
+          maxWidth: "1400px",
+          height: "auto",
+          top: "45%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
           objectFit: "contain",
-          filter: "drop-shadow(0 0 60px rgba(31,74,244,0.45))",
+          filter: "drop-shadow(0 0 100px rgba(31,74,244,0.5))",
+          opacity: 0.85,
         }}
       />
 
       {/* Securio Layer 3: Grid Dots Vector (ambient continuous upward motion) */}
       <div
         ref={dots1Ref}
-        className="absolute will-change-transform pointer-events-none opacity-45"
+        className="absolute will-change-transform pointer-events-none opacity-35"
         style={{
           zIndex: 7,
           backgroundImage: 'url("/securio/grid-dots-single.webp")',
@@ -191,7 +172,7 @@ export default function SecurioBackground({ className = "" }: SecurioBackgroundP
       />
       <div
         ref={dots2Ref}
-        className="absolute will-change-transform pointer-events-none opacity-45"
+        className="absolute will-change-transform pointer-events-none opacity-35"
         style={{
           zIndex: 7,
           backgroundImage: 'url("/securio/grid-dots-single.webp")',
@@ -204,7 +185,7 @@ export default function SecurioBackground({ className = "" }: SecurioBackgroundP
         }}
       />
 
-      {/* Securio Layer 4: Secondary Circle (luminous cyan / azure atmospheric spread) */}
+      {/* Securio Layer 4: Secondary Circle (luminous cyan / azure atmospheric spread centered) */}
       <img
         ref={secondaryCircleRef}
         src="/securio/light-circle.avif"
@@ -213,14 +194,14 @@ export default function SecurioBackground({ className = "" }: SecurioBackgroundP
         className="absolute pointer-events-none will-change-transform"
         style={{
           zIndex: 4,
-          minWidth: "180vw",
-          maxWidth: "180vw",
-          minHeight: "75rem",
-          maxHeight: "80rem",
-          marginTop: "-8rem",
-          marginLeft: "-20vw",
+          width: "145vw",
+          maxWidth: "1650px",
+          height: "auto",
+          top: "40%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
           objectFit: "contain",
-          opacity: 0.85,
+          opacity: 0.75,
         }}
       />
     </div>
