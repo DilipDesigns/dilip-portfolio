@@ -34,7 +34,7 @@ export default function Process() {
   const [activeId, setActiveId] = useState<string>("discover");
 
   return (
-    <section id="process" className="py-32 bg-[#f5f5f2] overflow-hidden flex flex-col items-center">
+    <section id="process" className="py-32 bg-[#FFFFFF] overflow-hidden flex flex-col items-center">
       <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 min-[1400px]:px-[120px] flex flex-col gap-[80px]">
         
         {/* Header Text */}
@@ -66,11 +66,11 @@ export default function Process() {
                 aria-expanded={isActive}
                 role="button"
                 className={clsx(
-                  "group relative bg-white rounded-[24px] px-[24px] py-[32px] md:px-[32px] lg:py-[44px] flex flex-col justify-between overflow-hidden cursor-pointer",
+                  "group relative rounded-[24px] px-[24px] py-[32px] md:px-[32px] lg:py-[44px] flex flex-col justify-between overflow-hidden cursor-pointer border border-[#e4e4e4]",
                   "transition-all duration-[600ms] ease-[cubic-bezier(0.25,1,0.5,1)] outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1d]",
                   isActive 
-                    ? "shadow-[0px_0px_90px_rgba(0,0,0,0.08)] lg:flex-[1.4_1.4_0%] xl:flex-[1.55_1.55_0%]" 
-                    : "shadow-none hover:bg-gray-50/50 border border-transparent hover:border-gray-200/60 lg:flex-[1_1_0%]"
+                    ? "bg-white shadow-[0px_8px_40px_rgba(0,0,0,0.06)] lg:flex-[1.4_1.4_0%] xl:flex-[1.55_1.55_0%]" 
+                    : "bg-[#fafafa] hover:bg-white shadow-none hover:border-gray-300 lg:flex-[1_1_0%]"
                 )}
               >
                 {/* Content Container */}

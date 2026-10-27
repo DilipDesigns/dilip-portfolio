@@ -3,7 +3,7 @@ import { RippleButton, RippleButtonRipples } from "./animate-ui/components/butto
 
 export default function SelectedWork() {
   return (
-    <section id="work" className="py-32 bg-[#f5f5f2] text-[#1d1d1d] w-full">
+    <section id="work" className="py-32 bg-[#FFFFFF] text-[#1d1d1d] w-full">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] flex flex-col md:flex-row md:items-end justify-between gap-8 w-full">
         <div className="flex flex-col gap-[24px] max-w-[519px]">
           <h2 className="font-inter font-medium text-[40px] md:text-[56px] leading-tight">

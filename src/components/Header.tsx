@@ -76,7 +76,7 @@ export default function Header() {
           className={clsx(
             "mx-auto flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]",
             isScrolled 
-              ? "max-w-[1000px] px-4 md:px-6 h-[64px] bg-[#f5f5f2]/70 backdrop-blur-xl rounded-full shadow-[0_4px_24px_-8px_rgba(0,0,0,0.1)] border border-white/50 mt-4 mx-4 md:mx-auto" 
+              ? "max-w-[1000px] px-4 md:px-6 h-[64px] bg-white/80 backdrop-blur-xl rounded-full shadow-[0_4px_24px_-8px_rgba(0,0,0,0.08)] border border-gray-200/50 mt-4 mx-4 md:mx-auto" 
               : "max-w-[1400px] px-6 md:px-12 min-[1400px]:px-[120px] h-[80px] bg-transparent border-transparent mt-0"
           )}
         >

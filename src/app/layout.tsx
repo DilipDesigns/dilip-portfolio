@@ -37,7 +37,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${ibmPlexMono.variable} ${plusJakartaSans.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#f5f5f2] text-[#1d1d1d]" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col font-sans bg-[#FFFFFF] text-[#1d1d1d]" suppressHydrationWarning>
         <Header />
         {children}
       </body>

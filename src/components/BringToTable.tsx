@@ -174,7 +174,7 @@ export default function BringToTable() {
   return (
     <section 
       ref={sectionRef} 
-      className="py-24 md:py-32 bg-[#f5f5f2] overflow-hidden w-full flex flex-col items-center border-t border-[#e4e4e4]"
+      className="py-24 md:py-32 bg-[#FFFFFF] overflow-hidden w-full flex flex-col items-center border-t border-[#e4e4e4]"
     >
       {/* Outer wrapper matching portfolio spacing standard */}
       <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 min-[1400px]:px-[120px] flex flex-col items-center justify-center relative">

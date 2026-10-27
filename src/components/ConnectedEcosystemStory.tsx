@@ -720,7 +720,7 @@ export default function ConnectedEcosystemStory() {
   // Render static fallback layout if reduced motion is active
   if (prefersReducedMotion) {
     return (
-      <section className="py-24 bg-[#f5f5f2] border-t border-gray-100">
+      <section className="py-24 bg-[#FFFFFF] border-t border-gray-100">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px]">
           <h2 className="font-sans font-semibold text-[32px] md:text-[48px] leading-tight text-[#1d1d1d] text-center max-w-[1000px] mx-auto mb-16">
             Designing experiences that connect <span className="text-sky-500 font-bold">people</span>, <span className="text-indigo-500 font-bold">workflows</span>, and <span className="text-emerald-500 font-bold">intelligent systems</span> into one clear, intuitive <span className="text-amber-500 font-bold">ecosystem</span>.
@@ -734,7 +734,7 @@ export default function ConnectedEcosystemStory() {
                 </span>
                 <div className="flex flex-col gap-4">
                   {chapter.artifacts.slice(0, 2).map((art) => (
-                    <div key={art.id} className="bg-[#f5f5f2] border border-gray-100 p-4 rounded-[12px] flex flex-col gap-2">
+                    <div key={art.id} className="bg-[#fafafa] border border-gray-100 p-4 rounded-[12px] flex flex-col gap-2">
                       <span className="text-[9px] font-mono font-semibold tracking-wider text-gray-500">
                         {art.badge}
                       </span>
@@ -794,7 +794,7 @@ export default function ConnectedEcosystemStory() {
   };
 
   return (
-    <div ref={sectionRef} className="relative w-full h-[450vh] bg-[#f5f5f2] z-10">
+    <div ref={sectionRef} className="relative w-full h-[450vh] bg-[#FFFFFF] z-10">
       
       {/* Sticky Stage */}
       <div ref={triggerRef} className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center select-none">
