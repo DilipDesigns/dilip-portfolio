@@ -25,7 +25,7 @@ const projects = [
 export default function WorkPage() {
   return (
     <main className="min-h-screen bg-[#f5f5f2] relative pb-32">
-      <div className="pt-[120px] md:pt-[164px] max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] relative z-10">
+      <div className="pt-[120px] md:pt-[164px] site-container relative z-10">
         <p className="font-sans text-[16px] leading-[28px] text-black mb-[24px]">
           Selected Works
         </p>
@@ -43,7 +43,7 @@ export default function WorkPage() {
       </div>
 
       {/* Projects Section */}
-      <div className="mt-[80px] md:mt-[104px] max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] sticky top-0 md:top-[80px] bg-[#f5f5f2]/95 backdrop-blur-sm z-20 py-4">
+      <div className="mt-[80px] md:mt-[104px] site-container sticky top-0 md:top-[80px] bg-[#f5f5f2]/95 backdrop-blur-sm z-20 py-4">
         <div className="flex flex-col gap-[15px] max-w-[1280px] mx-auto">
           <p className="font-sans text-[16px] text-black leading-[28px] hidden md:block">
             Explore.
@@ -72,7 +72,7 @@ export default function WorkPage() {
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] mt-[40px] flex flex-col gap-[80px] relative z-10">
+      <div className="site-container mt-[40px] flex flex-col gap-[80px] relative z-10">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}

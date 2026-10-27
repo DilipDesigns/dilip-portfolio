@@ -117,8 +117,8 @@ export default function Hero() {
         {/* Background & Animations */}
         <SecurioBackground />
 
-        {/* Global Padding Container: 120px margin at 1400px screens */}
-        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] relative z-10">
+        {/* Global Content Container */}
+        <div className="site-container relative z-10">
           
           {/* class="home-hero" */}
           <div className="home-hero items-center text-center">

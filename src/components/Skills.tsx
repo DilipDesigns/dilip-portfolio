@@ -35,8 +35,8 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section className="py-24 md:py-32 bg-[#FFFFFF] text-[#1d1d1d] w-full">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] flex flex-col gap-16 md:gap-[80px] w-full">
+    <section className="section-padding-y bg-[#FFFFFF] text-[#1d1d1d] w-full">
+      <div className="site-container flex flex-col gap-12 md:gap-16 lg:gap-20">
         
         {/* Header Text */}
         <div className="flex flex-col lg:flex-row lg:items-start gap-6 w-full">

@@ -720,8 +720,8 @@ export default function ConnectedEcosystemStory() {
   // Render static fallback layout if reduced motion is active
   if (prefersReducedMotion) {
     return (
-      <section className="py-24 bg-[#FFFFFF] border-t border-gray-100">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px]">
+      <section className="section-padding-y bg-[#FFFFFF] border-t border-gray-100 w-full">
+        <div className="site-container">
           <h2 className="font-sans font-semibold text-[32px] md:text-[48px] leading-tight text-[#1d1d1d] text-center max-w-[1000px] mx-auto mb-16">
             Designing experiences that connect <span className="text-sky-500 font-bold">people</span>, <span className="text-indigo-500 font-bold">workflows</span>, and <span className="text-emerald-500 font-bold">intelligent systems</span> into one clear, intuitive <span className="text-amber-500 font-bold">ecosystem</span>.
           </h2>
@@ -803,7 +803,7 @@ export default function ConnectedEcosystemStory() {
         {backgroundGrid}
 
         {/* Story Elements Container */}
-        <div ref={containerRef} className="relative w-full h-full max-w-[1400px] mx-auto px-6 md:px-12 min-[1400px]:px-[120px] flex items-center justify-center z-10">
+        <div ref={containerRef} className="relative w-full h-full site-container flex items-center justify-center z-10">
           
           {/* ==================== CENTRAL STATEMENT ==================== */}
           <h2 

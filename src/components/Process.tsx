@@ -34,8 +34,8 @@ export default function Process() {
   const [activeId, setActiveId] = useState<string>("discover");
 
   return (
-    <section id="process" className="py-32 bg-[#FFFFFF] overflow-hidden flex flex-col items-center">
-      <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 min-[1400px]:px-[120px] flex flex-col gap-[80px]">
+    <section id="process" className="section-padding-y bg-[#FFFFFF] overflow-hidden flex flex-col items-center w-full">
+      <div className="site-container flex flex-col gap-12 md:gap-16 lg:gap-20">
         
         {/* Header Text */}
         <div className="flex flex-col lg:flex-row lg:items-start gap-[24px] lg:gap-[100px] xl:gap-[350px] w-full">

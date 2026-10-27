@@ -30,6 +30,38 @@
 :root {
   --background: #FFFFFF;
   --foreground: #1d1d1d;
+
+  /* 1. Global Container & Gutter System */
+  --container-max-width: 1440px;
+  --page-gutter: 16px; /* Default for small mobile (<375px) */
+
+  /* 2. Adaptive Section Vertical Spacing */
+  --section-spacing-y: clamp(4rem, 7vw, 7.5rem);
+  --section-spacing-sm: clamp(2.5rem, 4vw, 4.5rem);
+
+  /* 3. Component Spacing & Grid Gaps */
+  --grid-gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  --grid-gap-sm: clamp(0.875rem, 1.5vw, 1.25rem);
+  --component-gap: clamp(1rem, 2vw, 1.75rem);
+
+  /* 4. Fluid Typography Scale */
+  --font-hero-title: clamp(2.25rem, 5vw, 4rem);
+  --font-section-title: clamp(1.875rem, 3.5vw, 3rem);
+  --font-card-title: clamp(1.25rem, 2vw, 1.5rem);
+  --font-body-large: clamp(1rem, 1.25vw, 1.25rem);
+
+  /* 5. Border Radii */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* 6. Touch Targets (Accessibility min 44px) */
+  --touch-target-min: 44px;
+
+  /* Legacy perimeter variables */
   --_perimeter---padding--p120: 120px;
   --_perimeter---padding--p40: 40px;
   --_perimeter---gap--80: 80px;
@@ -37,6 +69,45 @@
   --_colors---bg-color--bg-default-light: #f0f1f3;
   --padding-section--xlarge: 9.5rem;
   --padding-section--large: 6.25rem;
+}
+
+/* ==========================================================================
+   Responsive Breakpoint System: Fluid Adaptive Gutters
+   - Small Mobile (<375px): 16px margins
+   - Mobile (375px–767px): 20px–24px margins
+   - Tablet (768px–1023px): 32px–40px margins
+   - Laptop (1024px–1439px): 40px–56px margins
+   - Desktop (1440px–1919px): 60px minimum horizontal margins
+   - Large Desktop (>=1920px): fluidly increasing margins, content capped
+   ========================================================================== */
+@media (min-width: 375px) {
+  :root {
+    --page-gutter: clamp(20px, 5.33vw, 24px);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-gutter: clamp(32px, 4.1667vw, 40px);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page-gutter: clamp(40px, 3.9vw, 56px);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --page-gutter: clamp(60px, 4.1667vw, 80px);
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --page-gutter: clamp(80px, 5vw, 140px);
+  }
 }
 
 .intro-v1 {
@@ -301,31 +372,37 @@ body {
   margin: 0 auto;
 }
 
-/* Global Site Container Standard: 
-   At 1400px screens, margin is 120px on each side.
-   Above 1400px, content width is locked at 1400px - 240px = 1160px (or 1400px container with 120px padding), 
-   and auto margins increase. */
-.site-container {
+/* ==========================================================================
+   Global Content Container System
+   Fluid and adaptive:
+   - Sets width to calc(100% - (2 * var(--page-gutter)))
+   - Caps max-width at var(--container-max-width)
+   - Centers horizontally with margin-inline: auto
+   ========================================================================== */
+.site-container,
+.container {
+  width: calc(100% - (2 * var(--page-gutter)));
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.site-container-padded {
   width: 100%;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  max-width: calc(var(--container-max-width) + (2 * var(--page-gutter)));
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+  box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
-  .site-container {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
+.section-padding-y {
+  padding-top: var(--section-spacing-y);
+  padding-bottom: var(--section-spacing-y);
 }
 
-@media (min-width: 1400px) {
-  .site-container {
-    padding-left: 120px;
-    padding-right: 120px;
-  }
+.section-padding-sm-y {
+  padding-top: var(--section-spacing-sm);
+  padding-bottom: var(--section-spacing-sm);
 }
 
 /* Logos Marquee Section */

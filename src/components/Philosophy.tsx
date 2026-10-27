@@ -62,7 +62,7 @@ export default function Philosophy() {
         {/* Text Block - Positioned near top with generous space */}
         <div 
           ref={textRef} 
-          className="relative z-10 flex flex-col gap-[24px] items-center text-center max-w-[800px] px-6 mt-4 md:mt-8"
+          className="site-container relative z-10 flex flex-col gap-[24px] items-center text-center max-w-[800px] mt-4 md:mt-8"
         >
           <h2 className="font-jakarta font-medium text-[32px] md:text-[48px] leading-[1.2] text-[#1d1d1d]">
             Where creativity meets intelligence.
